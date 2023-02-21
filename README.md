@@ -81,12 +81,12 @@ In order to run this project you need:
 Clone this repository to your desired folder or download the Zip folder:
 
 ```
-git clone https://github.com/ndikumanaisaie/Blogapp.git
+git clone https://github.com/ndikumanaisaie/blog_app_ror.git
 ```
 
   * Navigate to the location of the folder in your machine:
 
-  **`you@your-Pc-name:~$ cd Blogapp`**
+  **`you@your-Pc-name:~$ cd blog_app_ror`**
 
 ### Install
 
