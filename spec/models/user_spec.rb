@@ -19,10 +19,10 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'Should test recent post method' do
+  describe 'Should test recent_post method' do
     before { 4.times { |post_n| Post.create(user_id: subject.id, title: "This is post #{post_n}") } }
 
-    it 'User should have three recent posts' do
+    it 'Should show three recent posts' do
       expect(@user.recent_posts).to eq(@user.posts.last(3))
     end
   end
