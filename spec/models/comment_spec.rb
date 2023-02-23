@@ -17,11 +17,10 @@ RSpec.describe Comment, type: :model do
       @comment.author_id = 'a'
       expect(@comment).to_not be_valid
     end
-    
+
     it 'if post_id is present' do
       @comment.post_id = nil
       expect(@comment).to_not be_valid
     end
-
   end
 end

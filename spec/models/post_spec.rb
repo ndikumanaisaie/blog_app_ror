@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   describe 'Validations for the post model' do
     before(:each) do
-      @user = User.new(name: 'Isaie', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'software engineer', post_counter: 2)
+      @user = User.new(name: 'Isaie', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'software engineer',
+                       post_counter: 2)
       @post = Post.new(author: @user, title: 'Test', text: 'testing', likes_counter: 4, comments_counter: 5)
     end
 

@@ -12,11 +12,10 @@ RSpec.describe Like, type: :model do
       @like.author_id = 'a'
       expect(@like).to_not be_valid
     end
-    
+
     it 'if post_id is present' do
       @like.post_id = nil
       expect(@like).to_not be_valid
     end
-
   end
 end

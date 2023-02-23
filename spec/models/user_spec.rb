@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'validations for User model' do
     before(:each) do
-      @user = User.new(name: 'Isaie', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'software engineer', post_counter: 2)
+      @user = User.new(name: 'Isaie', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'software engineer',
+                       post_counter: 2)
     end
 
     before { @user.save }
@@ -20,7 +21,11 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Should test recent_post method' do
-    before { 4.times { |post_n| Post.create(author_id: post_n, title: "This is post #{post_n}", text: "this is text #{post_n}") } }
+    before do
+      4.times do |post_n|
+        Post.create(author_id: post_n, title: "This is post #{post_n}", text: "this is text #{post_n}")
+      end
+    end
 
     it 'Should show three recent posts' do
       expect(User.new.recent_posts).to eq(Post.last(3))
