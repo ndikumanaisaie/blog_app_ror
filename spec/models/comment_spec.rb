@@ -5,7 +5,7 @@ RSpec.describe Comment, type: :model do
     subject do
       user1 = User.new(name: 'Isaie', photo: 'https://randomuser.me/api/portraits/men/23.jpg', bio: 'sofware engineer', post_counter: 3)
       post1 = Post.new(title: 'my title', text: 'my Text', comments_counter: 2, likes_counter: 1, author: user1)
-      @comment = Comment.new(text: 'First comment', author: @user1, post: post1)
+      @comment = Comment.new(text: 'First comment', author: user1, post: post1)
     end
 
     it 'should update comments counter' do
