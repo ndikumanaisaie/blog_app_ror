@@ -43,5 +43,11 @@ RSpec.describe Post, type: :model do
         expect(@post.recent_comments).to eq(@post.comments.last(5))
       end
     end
+    
+    describe 'Should test update_post_counter method in post model' do
+      it 'Should update post counter to 3' do
+        expect(@post.update_post_counter).to eq true
+      end
+    end
   end
 end
