@@ -43,7 +43,7 @@ RSpec.describe Post, type: :model do
         expect(@post.recent_comments).to eq(@post.comments.last(5))
       end
     end
-    
+
     it 'Should call update_post_counter after save in post model' do
       expect(@user.post_counter).to be 0
 
