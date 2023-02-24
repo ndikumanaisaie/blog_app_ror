@@ -1,35 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  describe 'Validations for the comment model' do
-    subject do
-      user1 = User.new(name: 'Isaie', photo: 'https://randomuser.me/api/portraits/men/23.jpg', bio: 'sofware engineer', post_counter: 3)
-      post1 = Post.new(title: 'my title', text: 'my Text', comments_counter: 2, likes_counter: 1, author: user1)
-      @comment = Comment.new(text: 'First comment', author: user1, post: post1)
-    end
+  before(:all) do
+    @user = User.create(name: 'Isaie', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Web developer')
+    @post = Post.create(title: 'post1', author: @user)
+  end
 
-    it 'should update comments counter' do
-      expect(subject.post.comments_counter).to eq 2
-    end
-    # it 'if author_id is present' do
-    #   @comment.text = nil
-    #   expect(@comment).to_not be_valid
-    # end
+  it 'should call update_comments_counter after saving the comment' do
+    expect(@post.comments_counter).to be 0
 
-    # it 'if author_id is present' do
-    #   @comment.author_id = 'a'
-    #   expect(@comment).to_not be_valid
-    # end
-
-    # it 'if post_id is present' do
-    #   @comment.post_id = nil
-    #   expect(@comment).to_not be_valid
-    # end
-
-    describe 'Should test update_comments_counter method in comment model' do
-      it 'Should be true' do
-        expect(subject.update_comments_counter).to eq true
-      end
-    end
+    comment = Comment.new(author: @user, post: @post, text: 'Hello rails')
+    comment.save
+    expect(@post.comments_counter).to be 1
   end
 end

@@ -4,7 +4,7 @@ RSpec.describe Post, type: :model do
   describe 'Validations for the post model' do
     before(:each) do
       @user = User.new(name: 'Isaie', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'software engineer',
-                       post_counter: 2)
+                       post_counter: 0)
       @post = Post.new(author: @user, title: 'Test', text: 'testing', likes_counter: 4, comments_counter: 5)
     end
 
@@ -44,10 +44,11 @@ RSpec.describe Post, type: :model do
       end
     end
     
-    describe 'Should test update_post_counter method in post model' do
-      it 'Should be true' do
-        expect(@post.update_post_counter).to eq true
-      end
+    it 'Should call update_post_counter after save in post model' do
+      expect(@user.post_counter).to be 0
+
+      @post.save
+      expect(@user.post_counter).to be 1
     end
   end
 end
