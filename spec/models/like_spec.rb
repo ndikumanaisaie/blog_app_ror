@@ -17,5 +17,11 @@ RSpec.describe Like, type: :model do
       @like.post_id = nil
       expect(@like).to_not be_valid
     end
+
+    describe 'Should test update_likes_counter method in like model' do
+      it 'Should be true' do
+        expect(@like.update_likes_counter).to eq true
+      end
+    end
   end
 end
