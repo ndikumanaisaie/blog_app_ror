@@ -27,7 +27,7 @@ RSpec.describe 'Posts', type: :request do
       get "/users/#{@user.id}/posts/#{@post.id}"
       expect(response).to render_template('show')
     end
-    it 'should render a users specific post' do
+    it 'should render a user specific post' do
       get "/users/#{@user.id}/posts/#{@post.id}"
       expect(response.body).to include(@post.title)
     end
