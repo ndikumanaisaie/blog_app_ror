@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /users/:id' do
     before do
       @user = User.create(name: 'Isaie', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Web developer.')
-      @post = Post.create(author: @user, title: 'first post', text: 'This is my first post.')
+      @post = Post.create(author: @user, title: 'first post', text: 'Show a user and his posts')
     end
     it 'should succeed' do
       get "/users/#{@user.id}"
