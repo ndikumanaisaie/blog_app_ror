@@ -27,7 +27,7 @@ RSpec.describe 'Users', type: :request do
     end
     it 'should render render user profile' do
       get "/users/#{@user.id}"
-      expect(response.body).to include(@post.Text)
+      expect(response.body).to include(@post.text)
     end
   end
 end
