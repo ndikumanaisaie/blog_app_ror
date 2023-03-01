@@ -109,7 +109,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 10px;
   cursor: pointer;
   border-radius: 4px;
   background: #fff;
@@ -125,12 +124,17 @@ header {
 .user-infos {
   display: flex;
   justify-content: space-around;
-  padding: 20px;
-  gap: 10px;
+  padding: 10px;
+  gap: 20px;
   align-items: center;
   cursor: pointer;
   transition: 0.5s;
-  font-size: 18px;
+}
+
+.user-infos p {
+  font-size: 12px;
+  margin-top: 30%;
+  margin-left: 20px;
 }
 
 .post-item {
