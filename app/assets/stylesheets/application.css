@@ -13,3 +13,241 @@
  *= require_tree .
  *= require_self
  */
+ *,
+ *::before,
+ *::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-align: center;
+ }
+ 
+ html {
+   font-family: 'Poppins', sans-serif;
+   text-align: center;
+ }
+ 
+ .btn {
+   width: auto;
+   font-family: 'Poppins', sans-serif;
+   font-size: 16px;
+   cursor: pointer;
+   background: #fff;
+   border-radius: 10px;
+   padding: 5px;
+   border: 2px solid #000;
+ }
+ 
+ .btn:hover {
+   background: #ddd;
+ }
+ 
+ a {
+   color: #000;
+   text-decoration: none;
+ }
+ /* stylelint-disable */
+ img {
+   display: block;
+   max-width: 100%;
+   border-radius: 50%;
+ }
+ 
+ header {
+   width: 100vw;
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 25px;
+   padding: 10px 0;
+   box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px,
+     rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+   background: #fff;
+ }
+ 
+ .field {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+ }
+ 
+ .actions {
+   margin-top: 10px;
+ }
+ 
+ .user,
+ .no-user {
+   font-size: 18px;
+ }
+ 
+ .user-list-page,
+ .user-profile-page,
+ .post-list-page,
+ .post-page,
+ .post-form-page,
+ .edit-user-page,
+ .login-page,
+ .sign-up-page,
+ .reset-password-page {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   gap: 10px;
+   padding: 25px;
+   margin-top: 80px;
+ }
+ 
+ .user-container {
+   width: 500px;
+   height: 90px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   padding: 10px;
+   cursor: pointer;
+   border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px,
+     rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+ }
+ 
+ .user-photo {
+   height: 75px;
+   width: 75px;
+   border: 2px solid #000;
+ }
+ 
+ .user-infos {
+   display: flex;
+   justify-content: space-around;
+   padding: 20px;
+   gap: 10px;
+   align-items: center;
+   cursor: pointer;
+   transition: 0.5s;
+   font-size: 18px;
+ }
+ 
+ .post-item {
+   cursor: pointer;
+ }
+ 
+ .user-bio,
+ .single-post,
+ .post-item {
+   width: 500px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 5px 15px;
+   border-radius: 10px;
+   background: #eee;
+   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+ }
+ 
+ .bio-text,
+ .post-text {
+   text-align: justify;
+   text-align-last: justify;
+ }
+ 
+ .post-card {
+   width: 500px;
+   cursor: pointer;
+   background: #eee;
+   padding: 5px 15px;
+   border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px,
+     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+   transition: 0.5s;
+ }
+ 
+ .post-card-top {
+   display: flex;
+   flex-direction: column;
+ }
+ 
+ .post-counters {
+   align-self: flex-end;
+ }
+ 
+ .comments-container {
+   width: 90%;
+   display: flex;
+   flex-direction: column;
+   margin: 15px 0;
+   border-top: 1px dashed #456;
+ }
+ 
+ .single-post {
+   padding: 15px;
+   background: #eee;
+   box-shadow: rgba(0, 0, 0, 0.9) 0px 2px 4px,
+     rgba(0, 0, 0, 0.9) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+ }
+ 
+ .post-top {
+   display: flex;
+   flex-direction: column;
+ }
+ 
+ .post-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+ 
+ .delete-btn {
+   align-self: center;
+ }
+ 
+ .delete-btn:hover {
+   background: #ff0000;
+ }
+ 
+ .post-form {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   height: 400px;
+   gap: 20px;
+   padding: 20px;
+   align-items: center;
+   background: #eee;
+   border: 2px dotted #000;
+ }
+ 
+ textarea {
+   resize: none;
+   width: 300px;
+   height: 75px;
+ }
+ 
+ input {
+   width: 300px;
+   height: 30px;
+ }
+ 
+ .like-form {
+   margin-top: 5px;
+ }
+ 
+ .like-form form,
+ .comment-form form {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+ }
+ 
+ .bg_white_100 {
+   background-color: #fff;
+ }
+ /* stylelint-enable */
+ 
