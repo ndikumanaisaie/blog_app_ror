@@ -2,8 +2,7 @@
   <div class="user-container">
     <img class="user-photo" src="<%= @user.photo %>">
     <div class="user-infos">
-      <p>User name: <%= @user.name %></p>
-      <span>|</span>
+      <h3><%= @user.name %></h3>
       <p>Number of posts: <%= @user.post_counter || 0 %></p>
     </div>
   </div>
