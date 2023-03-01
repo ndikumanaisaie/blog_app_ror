@@ -1,2 +1,33 @@
-<h1>List of all users</h1>
+<section class='post-list-page'>
+  <div class="user-container">
+    <img class="user-photo" src="<%= @user.photo %>">
+    <div class="user-infos">
+      <p>User name: <%= @user.name %></p>
+      <span>|</span>
+      <p>Number of posts: <%= @user.post_counter || 0 %></p>
+    </div>
+  </div>
+  <% if no_posts?(@posts) %>
+   <p>No posts to show.</p>
+  <% end %>
+  <% @posts.includes(:comments).each do |post| %>
+  <div class="post-card" onclick="window.location.href='/users/<%= @user.id %>/posts/<%= post.id %>'">
+    <div class='post-card-top'>
+      <h2><%=post.title%></h2>
+      <p><%=post.text%></p>
+      <p class="post-counters">Comments: <%=post.comments_counter || 0 %>, Likes: <%=post.likes_counter || 0 %></p>
+    </div> 
+    <div class="comments-container">
+      <h3>Comments</h3>
+      <% unless any_comments?(post) %>
+        <p>No comments yet.</p>
+      <% else %>
+        <% post.recent_5_comments.each do |comment| %>
+        <i><%= comment.author.name %>: <%= comment.text %></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%end%>
+</section>
 
