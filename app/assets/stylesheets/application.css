@@ -33,9 +33,9 @@ html {
   font-size: 16px;
   cursor: pointer;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 5px;
-  border: 2px solid #000;
+  border: 2px solid #ddd;
 }
 
 .btn:hover {
@@ -62,9 +62,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 25px;
-  padding: 10px 0;
-  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px,
-    rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+  padding: 4px 0;
   background: #fff;
 }
 
@@ -76,7 +74,7 @@ header {
 }
 
 .actions {
-  margin-top: 10px;
+  margin-top: 4px;
 }
 
 .user,
@@ -87,18 +85,13 @@ header {
 .user-list-page,
 .user-profile-page,
 .post-list-page,
-.post-page,
-.post-form-page,
-.edit-user-page,
-.login-page,
-.sign-up-page,
-.reset-password-page {
+.post-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 10px;
+  justify-content: start;
+  text-align: left;
+  gap: 4px;
   padding: 25px;
   margin-top: 80px;
 }
@@ -124,7 +117,7 @@ header {
 .user-infos {
   display: flex;
   justify-content: space-around;
-  padding: 10px;
+  padding: 4px;
   gap: 20px;
   align-items: center;
   cursor: pointer;
@@ -147,17 +140,17 @@ header {
   width: 500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content:start;
   padding: 5px 15px;
-  border-radius: 10px;
+  border-radius: 4px;
   background: #ddd;
 }
 
 .bio-text,
 .post-text {
-  text-align: justify;
-  text-align-last: justify;
+  text-align: left;
+  text-align-last: left;
 }
 
 .post-card {
@@ -165,7 +158,7 @@ header {
   cursor: pointer;
   background: #ddd;
   padding: 5px 15px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .post-card-top {
@@ -175,14 +168,21 @@ header {
 
 .post-counters {
   align-self: flex-end;
+  font-size: 12px;
 }
 
 .comments-container {
   width: 90%;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   margin: 15px 0;
-  border-top: 1px dashed #456;
+  border-top: 1px solid rgb(0, 0, 0);
+}
+
+.comments-container h3 {
+  margin-bottom: 8px;
 }
 
 .single-post {
@@ -199,6 +199,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 8px;
+}
+
+.post-header p {
+  font-size: 12px;
 }
 
 /* stylelint-enable */
