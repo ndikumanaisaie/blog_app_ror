@@ -206,4 +206,42 @@ header {
   font-size: 12px;
 }
 
+.post-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 400px;
+  gap: 20px;
+  padding: 20px;
+  align-items: center;
+  background: #eee;
+  border: 2px dotted #000;
+}
+
+textarea {
+  resize: none;
+  width: 300px;
+  height: 75px;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+}
+
+.like-form {
+  margin-top: 5px;
+}
+
+.like-form form,
+.comment-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bg_white_100 {
+  background-color: #fff;
+}
+
 /* stylelint-enable */

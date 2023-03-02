@@ -13,11 +13,4 @@ class CommentsController < ApplicationController
     end
     redirect_to user_post_path(params[:user_id], params[:id])
   end
-
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.update_comments_counter
-    @comment.destroy
-    redirect_back(fallback_location: root_path)
-  end
 end
