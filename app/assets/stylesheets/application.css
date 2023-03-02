@@ -13,3 +13,197 @@
  *= require_tree .
  *= require_self
  */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.btn {
+  width: auto;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 4px;
+  padding: 5px;
+  border: 2px solid #ddd;
+}
+
+.btn:hover {
+  background: #ddd;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+/* stylelint-disable */
+img {
+  display: block;
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+header {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 4px 0;
+  background: #fff;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.actions {
+  margin-top: 4px;
+}
+
+.user,
+.no-user {
+  font-size: 18px;
+}
+
+.user-list-page,
+.user-profile-page,
+.post-list-page,
+.post-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  text-align: left;
+  gap: 4px;
+  padding: 25px;
+  margin-top: 80px;
+}
+
+.user-container {
+  width: 500px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.user-photo {
+  height: 75px;
+  width: 75px;
+  border: 1px solid #cccccc;
+}
+
+.user-infos {
+  display: flex;
+  justify-content: space-around;
+  padding: 4px;
+  gap: 20px;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.user-infos p {
+  font-size: 12px;
+  margin-top: 30%;
+  margin-left: 20px;
+}
+
+.post-item {
+  cursor: pointer;
+}
+
+.user-bio,
+.single-post,
+.post-item {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:start;
+  padding: 5px 15px;
+  border-radius: 4px;
+  background: #ddd;
+}
+
+.bio-text,
+.post-text {
+  text-align: left;
+  text-align-last: left;
+}
+
+.post-card {
+  width: 500px;
+  cursor: pointer;
+  background: #ddd;
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+
+.post-card-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-counters {
+  align-self: flex-end;
+  font-size: 12px;
+}
+
+.comments-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 15px 0;
+  border-top: 1px solid rgb(0, 0, 0);
+}
+
+.comments-container h3 {
+  margin-bottom: 8px;
+}
+
+.single-post {
+  padding: 15px;
+  background: #ddd;
+}
+
+.post-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.post-header p {
+  font-size: 12px;
+}
+
+/* stylelint-enable */

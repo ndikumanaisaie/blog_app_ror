@@ -1,1 +1,32 @@
-<h1>Show a specific post</h1>
+<section class='post-page'>
+<button class='btn' onclick="window.location.href='/users/<%= @post.author_id %>/'">
+  <i class="fas fa-chevron-left"></i> Back to User
+</button>
+  <div class='single-post'>
+    <div class='post-top'>
+      <div class='post-header'>
+        <h3>
+          <%= @post.title %> <i>by</i> <%= @post.author.name %>
+        </h3>
+        <p>
+          Comments: <%= @post.comments_counter || 0 %>
+          Likes: <%= @post.likes_counter || 0 %>
+        </p>
+      </div>
+      <p class='post-text'><%= @post.text%> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
+      </p>
+    </div>
+    <div class='comments-container'>
+      <h3>Comments</h3>
+      <% unless any_comments?(@post) %>
+        <p>No comments yet.</p>
+      <% else %>
+        <% @post.comments.each do |comment| %>
+          <div>
+            <i><%= comment.author.name %>: <%= comment.text %></i>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
