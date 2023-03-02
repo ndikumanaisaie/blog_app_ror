@@ -210,12 +210,12 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 500px;
   height: 400px;
   gap: 20px;
   padding: 20px;
   align-items: center;
-  background: #eee;
-  border: 2px dotted #000;
+  background: #ddd;
 }
 
 textarea {
