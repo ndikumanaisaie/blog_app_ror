@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(post_id: params[:id], author_id: current_user.id, text: params[:text])
     if @comment.save
       @comment.update_comments_counter
-      flash[:success] = "Comment created successfully"
+      flash[:success] = 'Comment created successfully'
     else
       flash[:error] = 'An error has occurred, please try again later'
     end
