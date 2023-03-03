@@ -17,16 +17,6 @@
       </p>
     </div>
     <%= link_to "Add comment", new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id ), class: "btn" %>
-    <div  class='comment-form'>
-      <%= form_with model: @comment, url: user_post_comments_path(@post.author, @post, @comment) do |form| %>
-        <%= form.text_area :text%>
-        <%= form.hidden_field :author_id, value: @post.author.id %>
-        <%= form.hidden_field :post_id, value: @post.id %>
-        <%= button_tag type: 'submit', class:'btn' do %>
-          <i class="fas fa-comment-dots"></i> Post a Comment
-        <% end %>
-      <% end %>
-    </div>
     <div class='like-form'>
       <%= form_with model: @like, url: user_post_likes_path(@post.author, @post, @like) do |form| %>
         <%= form.hidden_field :post_id, value: @post.id %>
