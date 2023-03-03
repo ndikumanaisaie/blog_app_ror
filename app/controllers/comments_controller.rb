@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   def new
-    @post = Post.find(params[:id])
     @comment = Comment.new
   end
 
@@ -8,16 +7,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(post_id: params[:id], author_id: current_user.id, text: params[:text])
     if @comment.save
       @comment.update_comments_counter
+      flash[:success] = 'Comment created successfully'
     else
-      flash[:error] = 'There is an error'
+      flash[:error] = 'An error has occurred, please try again later'
     end
-    redirect_to user_post_path(params[:user_id], params[:id])
-  end
-
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.update_comments_counter
-    @comment.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to user_post_path(params[:user_id], params[:post_id])
   end
 end

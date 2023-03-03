@@ -1,0 +1,12 @@
+<section class='post-form-page'>
+  <h2>Create a Post</h2>
+  <%= form_with model: @post, url: user_posts_path do |form| %>
+    <div class='post-form'>
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control" %>
+      <%= form.label :text %>
+      <%= form.text_area :text, class: "form-control" %>
+      <%= form.submit "Create a Post", class: "btn" %>
+    </div>
+  <% end %>
+</section>
