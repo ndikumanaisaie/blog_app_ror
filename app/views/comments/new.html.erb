@@ -1,9 +1,9 @@
 <section  class='comment-form'>
   <h3>Add new comment</h3>
-  <%= form_with model: @comment, url: user_post_comments_path(@post.author, @post, @comment) do |form| %>
-    <%= form.text_area :text%>
-    <%= form.hidden_field :author_id, value: @post.author.id %>
-    <%= form.hidden_field :post_id, value: @post.id %>
+  <%= form_with model: @comment, url: user_post_comments_path do |form| %>
+    <%= form.text_area :text %>
+    <%= form.hidden_field :author_id %>
+    <%= form.hidden_field :post_id %>
     <%= button_tag type: 'submit', class:'btn' do %>
       <i class="fas fa-comment-dots"></i> Post a Comment
     <% end %>

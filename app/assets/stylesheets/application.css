@@ -213,7 +213,8 @@ header {
   justify-content: center;
 }
 
-.post-form {
+.post-form,
+.comment-form {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -223,6 +224,12 @@ header {
   padding: 20px;
   align-items: flex-start;
   background: #ddd;
+}
+
+.comment-form {
+  align-self: center;
+  justify-self: center;
+  margin: 40px auto;
 }
 
 textarea {
