@@ -25,5 +25,16 @@
         <% end %>
       <% end %>
     </div>
+
+    <div class="comments-container">
+      <h3>Comments</h3>
+      <% unless any_comments?(@post) %>
+        <p>No comments yet.</p>
+      <% else %>
+        <% @post.recent_comments.each do |comment| %>
+        <i><%= comment.author.name %>: <%= comment.text %></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </section>
