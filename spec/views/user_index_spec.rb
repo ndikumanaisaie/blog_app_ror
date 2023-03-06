@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'visit the user home page', type: :system do
   before do
-    @user1 = User.create(id: 1, name: 'Isaie', photo: 'https://randomuser.me/api/portraits/men/13.jpg', bio: 'Web developer', post_counter: 0)
-    @user2 = User.create(id: 2, name: 'Eliane', photo: 'https://randomuser.me/api/portraits/women/21.jpg', bio: 'Telecom Engineer', post_counter: 0)
+    @user1 = User.create(id: 5, name: 'isaie', photo: 'https://randomuser.me/api/portraits/men/13.jpg', bio: 'Web developer', post_counter: 0)
+    @user2 = User.create(id: 6, name: 'Eliane', photo: 'https://randomuser.me/api/portraits/women/21.jpg', bio: 'Telecom Engineer', post_counter: 0)
     @post1 = Post.create(author: @user1, title: 'My first post.', text: 'post description 1', comments_counter: 0, likes_counter: 0)
     @post2 = Post.create(author: @user2, title: 'My second post.', text: 'post description 2', comments_counter: 0, likes_counter: 0)
     @post3 = Post.create(author: @user1, title: 'My third post.', text: 'post description 3', comments_counter: 0, likes_counter: 0)
@@ -29,8 +29,8 @@ RSpec.describe 'visit the user home page', type: :system do
 
     it 'should direct to the users profile page' do
       visit '/'
-      click_on @user2.name
-      expect(page).to have_current_path("/users/#{@user2.id}/")
+      click_on @user1.name
+      expect(page).to have_current_path user_path(@user1)
     end
   end
 end
