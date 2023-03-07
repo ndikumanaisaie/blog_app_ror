@@ -4,7 +4,7 @@
 <% else %>
   <% @users.each do |user| %>
     <%= link_to user_path(user.id), class:"user-container" do %>
-      <img class="user-photo" src="<%= user.photo %>">
+      <img class="user-photo" src="<%= user.photo %>" />
       <div class="user-infos">
         <h3><%= user.name %></h3>
         <p>Number of posts: <%= user.post_counter || 0 %>
