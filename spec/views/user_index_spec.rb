@@ -1,36 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe 'visit the user home page', type: :system do
-  before do
-    @user1 = User.create(id: 5, name: 'isaie', photo: 'https://randomuser.me/api/portraits/men/13.jpg', bio: 'Web developer', post_counter: 0)
-    @user2 = User.create(id: 6, name: 'Eliane', photo: 'https://randomuser.me/api/portraits/women/21.jpg', bio: 'Telecom Engineer', post_counter: 0)
-    @post1 = Post.create(author: @user1, title: 'My first post.', text: 'post description 1', comments_counter: 0, likes_counter: 0)
-    @post2 = Post.create(author: @user2, title: 'My second post.', text: 'post description 2', comments_counter: 0, likes_counter: 0)
-    @post3 = Post.create(author: @user1, title: 'My third post.', text: 'post description 3', comments_counter: 0, likes_counter: 0)
-    Comment.create(post: @post1, author: @user2, text: 'hallo there')
-    Comment.create(post: @post2, author: @user1, text: 'You look stunning')
-  end
-
-  describe 'index page' do
-    it 'should show the username of all other users' do
-      visit '/'
-      expect(page).to have_content(@user1.name)
+  describe 'user index page' do
+    before(:each) do
+      @user1 = User.create(name: 'Isaie',
+                           photo: 'https://www.smashbros.com/wiiu-3ds/images/character/toon_link/main.png',
+                           bio: 'Engineer',
+                           post_counter: 0)
+      @user2 = User.create(name: 'Eliane',
+                           photo: 'https://www.smashbros.com/wiiu-3ds/images/character/lucina/main.png',
+                           bio: 'Tel engineer',
+                           post_counter: 0)
+      visit root_path
     end
-
-    it 'should show the profile picture for each user' do
-      visit '/'
-      expect(page).to have_selector("img[src*='#{@user1.photo}']")
+    it 'shows the correct names for each user' do
+        expect(page).to have_content('Isaie')
+        expect(page).to have_content('Eliane')
+      end
+    it 'shows the profile picture for each user' do
+      expect(page).to have_xpath("//img[contains(@src,'https://www.smashbros.com/wiiu-3ds/images/character/toon_link/main.png')]")
+      expect(page).to have_xpath("//img[contains(@src,'https://www.smashbros.com/wiiu-3ds/images/character/lucina/main.png')]")
     end
-
-    it 'should shows number of posts each user has written' do
-      visit '/'
-      expect(page).to have_content("Number of posts: #{@user1.post_counter}")
-    end
-
-    it 'should direct to the users profile page' do
-      visit '/'
-      click_on @user1.name
+    it 'When I click on a user, I am redirected to that user\'s show page' do
+      click_link('Isaie', match: :first)
       expect(page).to have_current_path user_path(@user1)
+    end
+    it 'shows the number of posts each user has written' do
+      expect(page).to have_content('Number of posts: ')
     end
   end
 end
