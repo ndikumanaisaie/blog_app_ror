@@ -21,7 +21,7 @@ RSpec.describe 'visit the user home page', type: :feature do
       expect(page).to have_xpath("//img[contains(@src,'https://www.smashbros.com/wiiu-3ds/images/character/toon_link/main.png')]")
       expect(page).to have_xpath("//img[contains(@src,'https://www.smashbros.com/wiiu-3ds/images/character/lucina/main.png')]")
     end
-   
+
     it 'shows the number of posts each user has written' do
       expect(page).to have_content('Number of posts: ')
     end
