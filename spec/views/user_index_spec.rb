@@ -21,10 +21,7 @@ RSpec.describe 'visit the user home page', type: :feature do
       expect(page).to have_xpath("//img[contains(@src,'https://www.smashbros.com/wiiu-3ds/images/character/toon_link/main.png')]")
       expect(page).to have_xpath("//img[contains(@src,'https://www.smashbros.com/wiiu-3ds/images/character/lucina/main.png')]")
     end
-    # it 'When I click on a user, I am redirected to that user\'s show page' do
-    #   click_link 'Isaie'
-    #   expect(page).to have_current_path user_path(@user1.id)
-    # end
+   
     it 'shows the number of posts each user has written' do
       expect(page).to have_content('Number of posts: ')
     end
