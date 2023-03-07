@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Render post index page', type: :system do
   before do
-    @user = User.create(id: 6, name: 'Isaie', photo: 'https://randomuser.me/api/portraits/men/23.jpg', bio: 'Web developer.', post_counter: 0)
+    @user = User.create(id: 6, name: 'Isaie', photo: 'https://randomuser.me/api/portraits/men/23.jpg',
+                        bio: 'Web developer.', post_counter: 0)
     @first_post = Post.create(author: @user, title: 'post1', text: 'first post', likes_counter: 0, comments_counter: 0)
     @second_post = Post.create(author: @user, title: 'Hello', text: 'first post', likes_counter: 0, comments_counter: 0)
     Comment.create(text: 'No comments yet.', author_id: @user.id, post_id: @first_post.id)

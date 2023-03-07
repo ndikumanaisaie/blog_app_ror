@@ -14,9 +14,9 @@ RSpec.describe 'visit the user home page', type: :feature do
       visit root_path
     end
     it 'shows the correct names for each user' do
-        expect(page).to have_content('Isaie')
-        expect(page).to have_content('Eliane')
-      end
+      expect(page).to have_content('Isaie')
+      expect(page).to have_content('Eliane')
+    end
     it 'shows the profile picture for each user' do
       expect(page).to have_xpath("//img[contains(@src,'https://www.smashbros.com/wiiu-3ds/images/character/toon_link/main.png')]")
       expect(page).to have_xpath("//img[contains(@src,'https://www.smashbros.com/wiiu-3ds/images/character/lucina/main.png')]")
