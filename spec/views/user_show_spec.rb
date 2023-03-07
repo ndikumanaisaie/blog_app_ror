@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'visit the user home page', type: :system do
   before do
-    @user1 = User.create(id: 5, name: 'Isaie', photo: 'https://randomuser.me/api/portraits/men/13.jpg',
+    @user1 = User.create(name: 'Isaie', photo: 'https://randomuser.me/api/portraits/men/13.jpg',
                          bio: 'Web developer', post_counter: 0)
-    @user2 = User.create(id: 6, name: 'Eliane', photo: 'https://randomuser.me/api/portraits/women/21.jpg',
+    @user2 = User.create(name: 'Eliane', photo: 'https://randomuser.me/api/portraits/women/21.jpg',
                          bio: 'Telecom Engineer', post_counter: 0)
     @post1 = Post.create(author: @user1, title: 'My first post.', text: 'post description 1', comments_counter: 0,
                          likes_counter: 0)
