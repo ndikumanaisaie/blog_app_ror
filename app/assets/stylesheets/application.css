@@ -258,4 +258,16 @@ input {
   background-color: #fff;
 }
 
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 500px;
+  height: 400px;
+  gap: 20px;
+  padding: 20px;
+  align-items: flex-start;
+  background: #ddd;
+}
+
 /* stylelint-enable */
