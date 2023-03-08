@@ -23,13 +23,13 @@
 }
 
 html {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-align: center;
 }
 
 .btn {
   width: auto;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   cursor: pointer;
   background: #fff;
@@ -141,7 +141,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content:start;
+  justify-content: start;
   padding: 5px 15px;
   border-radius: 4px;
   background: #ddd;
@@ -258,4 +258,10 @@ input {
   background-color: #fff;
 }
 
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 500px;
+}
 /* stylelint-enable */
