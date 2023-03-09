@@ -28,5 +28,18 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+
+    can :read, Post
+
+    return unless user.present?
+
+    can :manage, Post, author: user
+    can :manage, Comment, author: user
+    can :read, :all
+
+    return unless user.role == 'admin'
+
+    can :manage, :all
+
   end
 end
