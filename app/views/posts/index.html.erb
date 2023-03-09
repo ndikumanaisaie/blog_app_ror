@@ -5,6 +5,9 @@
       <h3><%= @user.name %></h3>
       <p>Number of posts: <%= @user.post_counter || 0 %></p>
     </div>
+    <div class="right">
+      <%= link_to "Add a post", new_user_post_path(@user), class: "btn right" %>
+    </div>
   </div>
   <% if no_posts?(@posts) %>
    <p>No posts to show.</p>

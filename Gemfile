@@ -23,13 +23,7 @@ gem 'devise'
 
 # Use cancancan
 
-gem 'mongoid'
-
 gem 'cancancan'
-
-gem 'cancancan-mongoid'
-
-gem 'rails_admin'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: %i[create destroy]
   load_and_authorize_resource
   def index
     @user = User.includes(:posts, :comments).find(params[:user_id])
@@ -15,16 +16,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    if params[:title].blank? || params[:text].blank?
-      flash[:error] = 'Title and text fields are required'
-      redirect_back(fallback_location: root_path)
-      return
-    end
-    @post = Post.new(title: params[:post][:title], text: params[:post][:text], author_id: current_user.id)
+    @author = User.find(params[:user_id])
+    @post = @author.posts.new(post_params)
+
     if @post.save
-      redirect_to user_post_path(@post), notice: 'Post created successfully'
+      redirect_to user_path(id: @post.author_id), notice: 'Post was successfully created'
+
     else
-      render :new, alert: 'An error occured. Please try again!'
+      render :new, alert: 'Error ccurred while creating the post'
     end
   end
 
@@ -32,5 +31,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_path(current_user)
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end

@@ -4,14 +4,17 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(post_id: params[:id], author_id: current_user.id, text: params[:text])
+    @comment = Comment.new(comment_params)
+    @post = Post.find(params[:post_id])
+    @comment.author_id = current_user.id
+    @comment.post_id = @post.id
+
     if @comment.save
-      @comment.update_comments_counter
-      flash[:success] = 'Comment created successfully'
+      flash[:notice] = 'Comment was successfully created'
+      redirect_to user_post_path(user_id: @post.author_id, id: @post.id)
     else
-      flash[:error] = 'An error has occurred, please try again later'
+      render :new, alert: 'Error occurred while creating the comment'
     end
-    redirect_to user_post_path(@comment.post.author, @comment.post)
   end
 
   def destroy
@@ -19,5 +22,11 @@ class CommentsController < ApplicationController
     @comment.update_comments_counter
     @comment.destroy
     redirect_back(fallback_location: root_path)
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text)
   end
 end
