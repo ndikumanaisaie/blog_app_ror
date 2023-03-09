@@ -32,3 +32,7 @@
 
 # Ignore node_modules
 /node_modules/
+
+# Ignore devise.rb
+
+/config/initializers/devise.rb
