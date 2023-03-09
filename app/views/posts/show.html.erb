@@ -32,7 +32,14 @@
         <p>No comments yet.</p>
       <% else %>
         <% @post.recent_comments.each do |comment| %>
-        <i><%= comment.author.name %>: <%= comment.text %></i>
+          <div>
+            <i><%= comment.author.name %>: <%= comment.text %></i>
+            <% if can? :delete, comment %>
+              <%= link_to user_post_comment_path(post_id: params[:id], id: comment.id), data: { turbo_method: :delete } do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     </div>
