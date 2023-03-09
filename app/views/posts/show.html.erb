@@ -15,10 +15,8 @@
       </div>
       <p class='post-text'><%= @post.text%> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, ligula ac accumsan posuere, est dolor posuere orci, nec iaculis neque lectus ut orci. Quisque sodales dui et rutrum egestas. Vivamus commodo, urna ut vehicula malesuada, sem elit mollis erat, ut placerat felis elit vitae purus. Praesent fringilla nulla vitae.</p>
       </p>
-      <% if can? :delete, @post %>          
-        <%= link_to  user_post_path, data: { turbo_method: :delete }, class: 'btn delete-btn' do %>
-          <i class="fas fa-trash-alt"></i> Delete Post
-        <% end %>
+      <% if can? :destroy, @post %>
+          <%= button_to "Delete post", user_post_path(user_id: @post.author.id, post_id: @post.id), method: :delete, class: 'btn-del'  %>
       <% end %>
     </div>
     <%= link_to "Add comment", new_user_post_comment_path(user_id: @post.author_id, post_id: @post.id ), class: "btn" %>
@@ -37,12 +35,10 @@
         <p>No comments yet.</p>
       <% else %>
         <% @post.recent_comments.each do |comment| %>
-          <div>
+          <div class="">
             <i><%= comment.author.name %>: <%= comment.text %></i>
-            <% if can? :delete, comment %>
-              <%= link_to user_post_comment_path(post_id: params[:id], id: comment.id), data: { turbo_method: :delete } do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
+            <% if can? :destroy, comment %>
+              <%= button_to "Delete comment", user_post_comments_path(user_id: comment.author.id, post_id: comment.post.id, id: comment.id), method: :delete, class: 'btn-del'  %>
             <% end %>
           </div>
         <% end %>
