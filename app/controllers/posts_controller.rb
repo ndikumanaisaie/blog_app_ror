@@ -26,4 +26,10 @@ class PostsController < ApplicationController
       render :new, alert: 'An error occured. Please try again!'
     end
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_path(current_user)
+  end
 end
