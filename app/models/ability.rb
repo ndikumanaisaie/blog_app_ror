@@ -29,17 +29,16 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
-    can :read, Post
+    user ||= User.new
 
-    return unless user.present?
-
-    can :manage, Post, author: user
-    can :manage, Comment, author: user
-    can :read, :all
-
-    return unless user.role == 'admin'
-
-    can :manage, :all
+    # Define User abilities
+    if user.is? :admin
+      can :manage, :all
+    else
+      can :manage, Post, author: user
+      can :manage, Comment, author: user
+      can :read, :all
+    end
 
   end
 end
