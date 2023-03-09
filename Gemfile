@@ -13,13 +13,23 @@ gem 'sprockets-rails'
 
 gem 'pg', '~> 1.1'
 
+## Use font awesome in rails
+
+gem 'font-awesome-rails'
+
 ## Use devise
 
 gem 'devise'
 
 # Use cancancan
 
-gem 'cancancan', '~> 1.9'
+gem 'mongoid'
+
+gem 'cancancan'
+
+gem 'cancancan-mongoid'
+
+gem 'rails_admin'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'

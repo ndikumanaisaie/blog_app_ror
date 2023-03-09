@@ -1,16 +1,22 @@
 <section class="user-list-page">
-<% if no_users?(@users) %>
-    <p class='no-user'>No users to show.</p>
-<% else %>
-  <% @users.each do |user| %>
-    <%= link_to user_path(user.id), class:"user-container" do %>
-      <img class="user-photo" src="<%= user.photo %>" />
-      <div class="user-infos">
-        <h3><%= user.name %></h3>
-        <p>Number of posts: <%= user.post_counter || 0 %>
-        </p>
-      </div>
+ <nav>
+    <ul>
+      <li><%= link_to "Home", users_path, class: "nav-link" %></li>
+      <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link"  %></li>
+    </ul>
+  </nav>
+  <% if no_users?(@users) %>
+      <p class='no-user'>No users to show.</p>
+  <% else %>
+    <% @users.each do |user| %>
+      <%= link_to user_path(user.id), class:"user-container" do %>
+        <img class="user-photo" src="<%= user.photo %>" />
+        <div class="user-infos">
+          <h3><%= user.name %></h3>
+          <p>Number of posts: <%= user.post_counter || 0 %>
+          </p>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 </section>

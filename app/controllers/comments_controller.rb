@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     else
       flash[:error] = 'An error has occurred, please try again later'
     end
-    redirect_to user_post_path(params[:user_id], params[:post_id])
+    redirect_to user_post_path(@comment.post.author, @comment.post)
   end
 
   def destroy
