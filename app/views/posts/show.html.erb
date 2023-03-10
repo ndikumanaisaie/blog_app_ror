@@ -38,7 +38,7 @@
           <div class="">
             <i><%= comment.author.name %>: <%= comment.text %></i>
             <% if can? :destroy, comment %>
-              <%= button_to "Delete comment", user_post_comments_path(user_id: comment.author.id, post_id: comment.post.id, id: comment.id), method: :delete, class: 'btn-del'  %>
+              <%= button_to "Delete comment", user_post_comment_path(user_id: comment.author.id, post_id: comment.post.id, id: comment.id), method: :delete, class: 'btn-del'  %>
             <% end %>
           </div>
         <% end %>
